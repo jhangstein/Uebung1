@@ -5,7 +5,9 @@ public class PasswordCheck {
         if (pwLength(pw)){
             if (pwContainsUpperLowerCase(pw)){
                 if (pwContainsNumber(pw)){
-                    return true;
+                    if (pwContainsAllowedSymbol(pw)){
+                        return true;
+                    }
                 }
             }
         }
@@ -33,6 +35,18 @@ public class PasswordCheck {
     public boolean pwContainsNumber(String pw){
         for (int i = 0; i < pw.length(); i++){
             if (pw.charAt(i) >= 48 && pw.charAt(i) <= 57){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean pwContainsAllowedSymbol(String pw){
+        boolean containsSymbol = false;
+        for (int i = 0; i < pw.length(); i++){
+            if (pw.charAt(i) == 33 || pw.charAt(i) == 35 || pw.charAt(i) == 36 || pw.charAt(i) == 37 ||
+                pw.charAt(i) == 40 || pw.charAt(i) == 41 || pw.charAt(i) == 47 || pw.charAt(i) == 63 ||
+                pw.charAt(i) == 64) {
                 return true;
             }
         }
