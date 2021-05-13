@@ -51,5 +51,41 @@ public class PasswordCheckTest {
     }
 
 
+    // Testing numeral requirements
+    @Test
+    @DisplayName("Check valid number req")
+    public void testPasswordNumber(){
+        PasswordCheck pw = new PasswordCheck();
+        assertTrue(pw.checkPassword("PassWord123"));
+    }
 
+    @Test
+    @DisplayName("Check invalid number req")
+    public void testPasswordNumber2(){
+        PasswordCheck pw = new PasswordCheck();
+        assertFalse(pw.checkPassword("WhoNeedsNumbersAnyways"));
+    }
+
+
+    // Testing symbol requirements
+    @Test
+    @DisplayName("Check PW with valid symbols")
+    public void testPasswordSymbol(){
+        PasswordCheck pw = new PasswordCheck();
+        assertTrue(pw.checkPassword("INeedNumbers(123)"));
+    }
+
+    @Test
+    @DisplayName("Check PW without symbols")
+    public void testPasswordSymbol2(){
+        PasswordCheck pw = new PasswordCheck();
+        assertFalse(pw.checkPassword("IDontNeedSymbols1"));
+    }
+
+    @Test
+    @DisplayName("Check PW with invalid symbols")
+    public void testPasswordSymbol3(){
+        PasswordCheck pw = new PasswordCheck();
+        assertFalse(pw.checkPassword("INeedSymbols&MuchMore1"));
+    }
 }
