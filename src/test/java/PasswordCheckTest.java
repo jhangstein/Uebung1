@@ -7,21 +7,21 @@ public class PasswordCheckTest {
 
     // Testing password length
     @Test
-    @DisplayName("Check valid pw length")
+    @DisplayName("Check PW with valid length")
     public void testPasswordLength(){
         PasswordCheck pw = new PasswordCheck();
         assertTrue(pw.checkPassword("Password1%"));
     }
 
     @Test
-    @DisplayName("Check invalid pw length")
+    @DisplayName("Check PW length - too short")
     public void testPasswordLength2(){
         PasswordCheck pw = new PasswordCheck();
         assertFalse(pw.checkPassword("pass1%"));
     }
 
     @Test
-    @DisplayName("Check invalid pw length")
+    @DisplayName("Check PW length - too long")
     public void testPasswordLength3(){
         PasswordCheck pw = new PasswordCheck();
         assertFalse(pw.checkPassword("supermegaultrasecurepassword123))"));
@@ -30,21 +30,21 @@ public class PasswordCheckTest {
 
     // Testing Upper/Lower Case requirements
     @Test
-    @DisplayName("Check valid Aa")
+    @DisplayName("Check PW with valid Aa")
     public void testPasswordUpperLower(){
         PasswordCheck pw = new PasswordCheck();
         assertTrue(pw.checkPassword("VerySecure1!!1!"));
     }
 
     @Test
-    @DisplayName("Check invalid Aa")
+    @DisplayName("Check PW Aa - no upper")
     public void testPasswordUpperLower2(){
         PasswordCheck pw = new PasswordCheck();
         assertFalse(pw.checkPassword("verysecure1!!!1!"));
     }
 
     @Test
-    @DisplayName("Check invalid Aa")
+    @DisplayName("Check PW Aa - no letters")
     public void testPasswordUpperLower3(){
         PasswordCheck pw = new PasswordCheck();
         assertFalse(pw.checkPassword("123456789!!!"));
@@ -53,14 +53,14 @@ public class PasswordCheckTest {
 
     // Testing numeral requirements
     @Test
-    @DisplayName("Check valid number req")
+    @DisplayName("Check PW with numbers")
     public void testPasswordNumber(){
         PasswordCheck pw = new PasswordCheck();
         assertTrue(pw.checkPassword("PassWord123!"));
     }
 
     @Test
-    @DisplayName("Check invalid number req")
+    @DisplayName("Check PW numbers - no numbers")
     public void testPasswordNumber2(){
         PasswordCheck pw = new PasswordCheck();
         assertFalse(pw.checkPassword("WhoNeedsNumbersAnyways?"));
