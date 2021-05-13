@@ -10,21 +10,21 @@ public class PasswordCheckTest {
     @DisplayName("Check valid pw length")
     public void testPasswordLength(){
         PasswordCheck pw = new PasswordCheck();
-        assertTrue(pw.checkPassword("Password"));
+        assertTrue(pw.checkPassword("Password1%"));
     }
 
     @Test
     @DisplayName("Check invalid pw length")
     public void testPasswordLength2(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("pass"));
+        assertFalse(pw.checkPassword("pass1%"));
     }
 
     @Test
     @DisplayName("Check invalid pw length")
     public void testPasswordLength3(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("supermegaultrasecurepassword"));
+        assertFalse(pw.checkPassword("supermegaultrasecurepassword123))"));
     }
 
 
@@ -33,21 +33,21 @@ public class PasswordCheckTest {
     @DisplayName("Check valid Aa")
     public void testPasswordUpperLower(){
         PasswordCheck pw = new PasswordCheck();
-        assertTrue(pw.checkPassword("VerySecure"));
+        assertTrue(pw.checkPassword("VerySecure1!!1!"));
     }
 
     @Test
     @DisplayName("Check invalid Aa")
     public void testPasswordUpperLower2(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("verysecure"));
+        assertFalse(pw.checkPassword("verysecure1!!!1!"));
     }
 
     @Test
     @DisplayName("Check invalid Aa")
     public void testPasswordUpperLower3(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("123456789"));
+        assertFalse(pw.checkPassword("123456789!!!"));
     }
 
 
@@ -56,14 +56,14 @@ public class PasswordCheckTest {
     @DisplayName("Check valid number req")
     public void testPasswordNumber(){
         PasswordCheck pw = new PasswordCheck();
-        assertTrue(pw.checkPassword("PassWord123"));
+        assertTrue(pw.checkPassword("PassWord123!"));
     }
 
     @Test
     @DisplayName("Check invalid number req")
     public void testPasswordNumber2(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("WhoNeedsNumbersAnyways"));
+        assertFalse(pw.checkPassword("WhoNeedsNumbersAnyways?"));
     }
 
 

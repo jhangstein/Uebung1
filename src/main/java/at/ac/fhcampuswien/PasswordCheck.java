@@ -4,7 +4,9 @@ public class PasswordCheck {
     public boolean checkPassword(String pw) {
         if (pwLength(pw)){
             if (pwContainsUpperLowerCase(pw)){
-                return true;
+                if (pwContainsNumber(pw)){
+                    return true;
+                }
             }
         }
         return false;
@@ -26,5 +28,14 @@ public class PasswordCheck {
         }
         if (containsLower && containsUpper) return true;
         else return false;
+    }
+
+    public boolean pwContainsNumber(String pw){
+        for (int i = 0; i < pw.length(); i++){
+            if (pw.charAt(i) >= 48 && pw.charAt(i) <= 57){
+                return true;
+            }
+        }
+        return false;
     }
 }
