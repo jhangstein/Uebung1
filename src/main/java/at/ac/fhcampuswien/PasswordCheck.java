@@ -26,7 +26,13 @@ public class PasswordCheck {
     public boolean pwContainsNumber(String pw){
         for (int i = 0; i < pw.length(); i++){
             if (pw.charAt(i) >= 48 && pw.charAt(i) <= 57){
-                return true;
+                if (i <= pw.length()-2 && pw.charAt(i+1) == pw.charAt(i) && pw.charAt(i+2) == pw.charAt(i)){
+                    return false;
+                }
+                else if (i <= pw.length()-2 && pw.charAt(i+1) == pw.charAt(i)+1 && pw.charAt(i+2) == pw.charAt(i)+2){
+                    return false;
+                }
+                else return true;
             }
         }
         return false;

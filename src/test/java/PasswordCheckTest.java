@@ -24,7 +24,7 @@ public class PasswordCheckTest {
     @DisplayName("Check PW length - too long")
     public void testPasswordLength3(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("supermegaultrasecurepassword123))"));
+        assertFalse(pw.checkPassword("supermegaultrasecurepassword122112))"));
     }
 
 
@@ -47,7 +47,7 @@ public class PasswordCheckTest {
     @DisplayName("Check PW Aa - no letters")
     public void testPasswordUpperLower3(){
         PasswordCheck pw = new PasswordCheck();
-        assertFalse(pw.checkPassword("123456789!!!"));
+        assertFalse(pw.checkPassword("1212121212!!!"));
     }
 
 
@@ -56,7 +56,7 @@ public class PasswordCheckTest {
     @DisplayName("Check PW with numbers")
     public void testPasswordNumber(){
         PasswordCheck pw = new PasswordCheck();
-        assertTrue(pw.checkPassword("PassWord123!"));
+        assertTrue(pw.checkPassword("PassWord12!"));
     }
 
     @Test
@@ -66,13 +66,27 @@ public class PasswordCheckTest {
         assertFalse(pw.checkPassword("WhoNeedsNumbersAnyways?"));
     }
 
+    @Test
+    @DisplayName("Check PW numbers - repeated numbers")
+    public void testPasswordNumber3(){
+        PasswordCheck pw = new PasswordCheck();
+        assertFalse(pw.checkPassword("PassWord11111!"));
+    }
+
+    @Test
+    @DisplayName("Check PW numbers - ascending numbers")
+    public void testPasswordNumber4(){
+        PasswordCheck pw = new PasswordCheck();
+        assertFalse(pw.checkPassword("PassWord12345!"));
+    }
+
 
     // Testing symbol requirements
     @Test
     @DisplayName("Check PW with valid symbols")
     public void testPasswordSymbol(){
         PasswordCheck pw = new PasswordCheck();
-        assertTrue(pw.checkPassword("INeedNumbers(123)"));
+        assertTrue(pw.checkPassword("INeedNumbers(12)"));
     }
 
     @Test
