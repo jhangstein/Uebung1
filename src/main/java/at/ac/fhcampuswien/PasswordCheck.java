@@ -39,6 +39,15 @@ public class PasswordCheck {
     }
 
     public boolean pwContainsAllowedSymbol(String pw){
+        if (pw.replaceAll("[A-Z], [a-z], [0-9]", "").equals("")){
+            return false;
+        }
+        if (pw.replaceAll("[A-Z], [a-z], [0-9], [()#$?!%/@]", "").equals("")){
+            return true;
+        }
+        return false;
+
+        /*
         for (int i = 0; i < pw.length(); i++){
             if (pw.charAt(i) == 33 || pw.charAt(i) == 35 || pw.charAt(i) == 36 || pw.charAt(i) == 37 ||
                 pw.charAt(i) == 40 || pw.charAt(i) == 41 || pw.charAt(i) == 47 || pw.charAt(i) == 63 ||
@@ -47,5 +56,6 @@ public class PasswordCheck {
             }
         }
         return false;
+        */
     }
 }
